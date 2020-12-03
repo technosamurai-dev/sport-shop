@@ -1,0 +1,43 @@
+@media (max-width: 1230px) {
+
+}
+
+@media (max-width: 990px) {
+   
+}
+
+@media (max-width: 770px) {
+
+}
+
+@media (max-width: 575px) {
+    .header {
+        flex-direction: column;
+        &__official {
+            margin-top: 15px;
+        }
+        &__contacts {
+            margin-top: 15px;
+        }
+    }
+    
+    .promo__header {
+        font-size: 33px;
+    }
+    
+    .promo__icons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title.title_left {
+        font-size: 27px;
+    }
+
+    .consultation {
+        &__descr {
+            margin-top: 60px;
+        }
+    }
+    
+}

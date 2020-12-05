@@ -6,8 +6,12 @@
    
 }
 
-@media (max-width: 770px) {
-
+@media (max-width: 625px) {
+    .catalog {
+        &__content_active {
+            justify-content: center;
+        }
+    }
 }
 
 @media (max-width: 575px) {
@@ -37,6 +41,21 @@
     .consultation {
         &__descr {
             margin-top: 60px;
+        }
+    }
+
+    .review {
+        &__item {
+            flex-direction: column;
+        }
+        &__title {
+            margin-top: 10px;
+        }
+    }
+
+    .catalog {
+        &__tab {
+            font-size: 11px;
         }
     }
     

@@ -1,11 +1,13 @@
 @import 'base/variables';
 @import 'base/media';
+@import 'base/animations';
 
 * {
     font-family: 'Museo Sans Cyrl', sans-serif;
 }
 .container {
     max-width: 950px;
+    min-width: 0;
     padding: 0px 5px;
     margin: 0 auto;
 }
@@ -20,6 +22,8 @@
 @import 'blocks/reviews';
 @import 'blocks/footer';
 @import 'blocks/modals';
+@import 'blocks/pageup';
+
 
 .benefit {
     padding: 69px 0 81px 0;
@@ -61,6 +65,17 @@
         &:hover {
             color: #c02b2b;
             text-decoration: none;  
+        }
+    }
+    &__icon {
+        &_animated {
+            animation-name: heartbeat;
+            animation-duration: 1.5s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+            &:hover {
+                animation-play-state: paused;
+            }
         }
     }
 }

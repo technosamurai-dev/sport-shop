@@ -24,17 +24,18 @@
     }
 
     .slick-dots {
-        li.slick-active {
-            button {
-                background-color: $main-color;
-                box-shadow: 1px 1px 10px $main-color;
-            }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        li {
+            list-style: none;
         }
         button {
             border-radius: 100%;
             background-color: #fff;
             width: 20px;
             height: 20px;
+            font-size: 0px;
         }
     }
 

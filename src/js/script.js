@@ -50,4 +50,81 @@ $(document).ready(function(){
             $('.overlay, #order').fadeIn();
         });
     });
+
+    /* Validation */
+    function validateForms(form) {
+        $( form).validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                  },
+                phone: {
+                    required: true,
+                    minlength: 10
+                  },
+                email: {
+                    required: true,
+                    email: true
+                    }
+                },
+                messages: {
+                    name: {
+                        required: "* Пожалуйста введите своё имя",
+                        minlength: jQuery.validator.format("Минимум {0} символа!")
+                      },
+                    phone: {
+                        required: "* Пожалуйста введите номер телефона",
+                        minlength: jQuery.validator.format("Минимум {0} символов!")
+                      },
+                    email: {
+                      required: "* Пожалуйста, введите свою почту",
+                      email: "* Неправильный формат почты"
+                    }
+                }
+            
+        });
+    };
+
+    validateForms('#consultation-form');
+    validateForms('#order form');
+    validateForms('#consultation form');
+    validateForms('.feed-form');
+
+    /* phone mask */
+    $('input[name=phone]').mask("+38 (999) 999-9999");
+
+    /* Mailer front part */
+    $('form').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "mailer/smart.php",
+            data: $(this).serialize()
+        }).done(function() {
+            $(this).find("input").val("");
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanks').fadeIn();
+
+            $('form').trigger('reset');
+        });
+        return false;
+    });
+
+    //Smooth scrool and pageup
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 1600) {
+            $('.pageup').fadeIn();
+        } else {
+            $('.pageup').fadeOut();
+        }
+    });
+
+    $("a[href^='#']").click(function(){
+        const _href = $(this).attr("href");
+        $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+        return false;
+    });
+
+    new WOW().init();
   });
